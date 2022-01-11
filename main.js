@@ -127,8 +127,6 @@ for(let i=0; i < social.length; i++) {
 
 const likeButton = document.querySelectorAll(".js-like-button");
 
-const arraylikes = [];
-
 let counterClick = 0;
 
 for (let i=0; i < likeButton.length; i++) {
