@@ -40,26 +40,26 @@ Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzion
 
 // funzione generica
 
-function createPost(container, post) {
+function createPost(container, content) {
 
-for(let i=0; i < post.length; i++) {
+
     container.innerHTML += 
    `
     <div class="post">
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${post[i].profileImage}" alt="Phil Mangione">                    
+                    <img class="profile-pic" src="${content.profileImage}" alt="Phil Mangione">                    
                 </div>
                 <div class="post-meta__data">
-                    <div class="post-meta__author">${post[i].name}</div>
-                    <div class="post-meta__time">Pubblicato il ${post[i].dataAmerican}</div>
+                    <div class="post-meta__author">${content.name}</div>
+                    <div class="post-meta__time">Pubblicato il ${content.dataAmerican}</div>
                 </div>                    
             </div>
         </div>
-        <div class="post__text">${post[i].text}</div>
+        <div class="post__text">${content.text}</div>
         <div class="post__image">
-            <img src="${post[i].postImage}" alt="">
+            <img src="${content.postImage}" alt="">
         </div>
         <div class="post__footer">
             <div class="likes js-likes">
@@ -70,14 +70,14 @@ for(let i=0; i < post.length; i++) {
                     </a>
                 </div>
                 <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">${post[i].likes}</b> persone
+                    Piace a <b id="like-counter-1" class="js-likes-counter">${content.likes}</b> persone
                 </div>
             </div> 
         </div>            
     </div>
     `
 }
-}
+
 
 // creo l'array di oggetti
 
@@ -117,11 +117,15 @@ const social = [
 const containerHtml = document.getElementById("container");
 const likeButton = document.querySelector(".likes__cta");
 // const likeButton = document.querySelector(".js-like-button");
-
-createPost(containerHtml, social);
-
 let counterLike = 0;
 
+for(let i=0; i < social.length; i++) {
+
+    let post = social[i];
+    createPost(containerHtml, post);
+
+
+}
 
 
 
