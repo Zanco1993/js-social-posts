@@ -38,6 +38,51 @@ Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzion
 
 //--------------------------------------------------------------------------------
 
+// funzioni
+
+function createPost(container, post) {
+
+for(let i=0; i < post.length; i++) {
+    container.innerHTML += 
+   `
+    <div class="post">
+        <div class="post__header">
+            <div class="post-meta">                    
+                <div class="post-meta__icon">
+                    <img class="profile-pic" src="${post[i].profileImage}" alt="Phil Mangione">                    
+                </div>
+                <div class="post-meta__data">
+                    <div class="post-meta__author">${post[i].name}</div>
+                    <div class="post-meta__time">Pubblicato il ${social[i].dataAmerican}</div>
+                </div>                    
+            </div>
+        </div>
+        <div class="post__text">${post[i].text}</div>
+        <div class="post__image">
+            <img src="${post[i].postImage}" alt="">
+        </div>
+        <div class="post__footer">
+            <div class="likes js-likes">
+                <div class="likes__cta">
+                    <a class="like-button  js-like-button" href="#" data-postid="1">
+                        <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="like-button__label">Mi Piace</span>
+                    </a>
+                </div>
+                <div class="likes__counter">
+                    Piace a <b id="like-counter-1" class="js-likes-counter">${post[i].likes}</b> persone
+                </div>
+            </div> 
+        </div>            
+    </div>
+    `
+}
+}
+
+
+
+
+
 // creo l'array di oggetti
 
 const social = [
@@ -74,40 +119,18 @@ const social = [
 // inserisco dove mi serve, le varie informazioni dell'utente
 
 const containerHtml = document.getElementById("container");
+const likeButton = document.querySelector(".js-like-button");
 
-for(let i=0; i < social.length; i++) {
-    containerHtml.innerHTML += 
-   `
-    <div class="post">
-        <div class="post__header">
-            <div class="post-meta">                    
-                <div class="post-meta__icon">
-                    <img class="profile-pic" src="${social[i].profileImage}" alt="Phil Mangione">                    
-                </div>
-                <div class="post-meta__data">
-                    <div class="post-meta__author">${social[i].name}</div>
-                    <div class="post-meta__time">Pubblicato il ${social[i].dataAmerican}</div>
-                </div>                    
-            </div>
-        </div>
-        <div class="post__text">${social[i].text}</div>
-        <div class="post__image">
-            <img src="${social[i].postImage}" alt="">
-        </div>
-        <div class="post__footer">
-            <div class="likes js-likes">
-                <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
-                        <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
-                        <span class="like-button__label">Mi Piace</span>
-                    </a>
-                </div>
-                <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">${social[i].likes}</b> persone
-                </div>
-            </div> 
-        </div>            
-    </div>
-    `
+createPost(containerHtml, social);
 
-}
+let counterLike = 0;
+
+likeButton.addEventListener("click", function(){
+
+
+
+
+})
+
+
+
