@@ -53,7 +53,7 @@ for(let i=0; i < post.length; i++) {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post[i].name}</div>
-                    <div class="post-meta__time">Pubblicato il ${social[i].dataAmerican}</div>
+                    <div class="post-meta__time">Pubblicato il ${post[i].dataAmerican}</div>
                 </div>                    
             </div>
         </div>
@@ -122,13 +122,7 @@ createPost(containerHtml, social);
 
 let counterLike = 0;
 
-likeButton.addEventListener("click", function(){
 
-        likeButton.classList.add("like-button--liked")
-
-
-
-})
 
 
 
