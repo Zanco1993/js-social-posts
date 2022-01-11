@@ -38,7 +38,7 @@ Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzion
 
 //--------------------------------------------------------------------------------
 
-// funzioni
+// funzione generica
 
 function createPost(container, post) {
 
@@ -79,10 +79,6 @@ for(let i=0; i < post.length; i++) {
 }
 }
 
-
-
-
-
 // creo l'array di oggetti
 
 const social = [
@@ -119,7 +115,8 @@ const social = [
 // inserisco dove mi serve, le varie informazioni dell'utente
 
 const containerHtml = document.getElementById("container");
-const likeButton = document.querySelector(".js-like-button");
+const likeButton = document.querySelector(".likes__cta");
+// const likeButton = document.querySelector(".js-like-button");
 
 createPost(containerHtml, social);
 
@@ -127,6 +124,7 @@ let counterLike = 0;
 
 likeButton.addEventListener("click", function(){
 
+        likeButton.classList.add("like-button--liked")
 
 
 
