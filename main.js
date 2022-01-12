@@ -49,7 +49,7 @@ function createPost(container, content) {
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${content.profileImage}" alt="Phil Mangione">                    
+                    <img class="profile-pic" src="${content.profileImage}" alt="${content.name}">                    
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${content.name}</div>
@@ -64,7 +64,7 @@ function createPost(container, content) {
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="javascript:void(0)" data-postid="${content.id}">
+                    <a class="like-button  js-like-button" href="#" data-postid="${content.id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -120,7 +120,7 @@ const likeNumber = [];
 for(let i=0; i < social.length; i++) {
     likeNumber[i] = social[i].likes
     let post = social[i];
-    createPost(containerHtml, post);  
+    createPost(containerHtml, post);  //in questo caso abbiamo innerHtml all'interno della funzione
 }
 
 
@@ -130,7 +130,9 @@ const likeButton = document.querySelectorAll(".js-like-button");
 let counterClick = 0;
 
 for (let i=0; i < likeButton.length; i++) {
-    likeButton[i].addEventListener('click', function(){
+    likeButton[i].addEventListener('click', function(e){
+
+        e.preventDefault();
 
         const likesCounter = document.getElementById(`like-counter-${social[i].id}`);
 
@@ -139,7 +141,7 @@ for (let i=0; i < likeButton.length; i++) {
         if(counterClick % 2 !== 0){
             likeNumber[i]++;
         } else {
-            likeNumber[i]--
+            likeNumber[i]--;
         }
         likesCounter.innerHTML = likeNumber[i];
 
